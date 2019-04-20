@@ -17,5 +17,7 @@ void		ft_turn_left(tetramina *arr, int count);
 int			get_next_line(int fd, char **line);
 void		ft_push_list(int fd, tetramina *arr, int count);
 void		ft_print_list(tetramina *arr, int count);
+void		ft_print_error(void);
+void		ft_check_valid_files(int fd);
 
 #endif
