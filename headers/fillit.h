@@ -19,5 +19,6 @@ void		ft_push_list(int fd, tetramina *arr, int count);
 void		ft_print_list(tetramina *arr, int count);
 void		ft_print_error(void);
 void		ft_check_valid_files(int fd);
+int			ft_check_valid_figures(int fd);
 
 #endif
