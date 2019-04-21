@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:14:54 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/20 20:16:16 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/21 19:21:08 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	ft_push_list(int fd, tetramina *arr, int count)
 		while (++k < 5)
 		{
 			if (get_next_line(fd, &line) == -1)
-			{
-				printf("get_next_line = -1,file ft_push_list\n");
-				exit(-1);
-			}
+				ft_print_error();
 			i = -1;
 			while (line[++i] != '\0')
 				if (line[i] == '.')
