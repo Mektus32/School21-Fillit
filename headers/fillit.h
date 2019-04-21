@@ -24,19 +24,14 @@ typedef	struct 	s_field
 	int		size;
 }				field;
 
-
-tetramina	*ft_create_arr(int count);
-//void		ft_turn_left(tetramina *arr, int count);
 int			get_next_line(int fd, char **line);
-//void		ft_push_list(int fd, tetramina *arr, int count);
-//void		ft_print_list(tetramina *arr, int count);
 void		ft_print_error(void);
 void		ft_check_valid_files(int fd);
-//void		ft_turn_up(tetramina *arr, int count);
 void		ft_print_field(field *f, int count);
 field		*ft_create_field(int count);
 int			ft_square(int count);
 tetramina	*ft_coordinates(int count);
 void		ft_push_coordinates(int fd, tetramina **pointer);
+int			ft_check_valid_figures(int fd);
 
 #endif
