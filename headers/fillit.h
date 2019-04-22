@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 15:59:14 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/22 21:01:37 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 22:07:01 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ t_tetramina		*ft_coordinates(int count);
 void			ft_push_coordinates(int fd, t_tetramina **pointer);
 int				ft_check_valid_figures(int fd);
 void			ft_free_field(t_field **map, int len);
+int				ft_entry_figure(t_tetramina *arr, t_field *map);
 
 #endif

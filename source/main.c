@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 12:31:37 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/22 21:01:52 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 22:10:22 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main(void)
 	array = ft_coordinates(count);//создание массива на count  элементов
 	ft_push_coordinates(fd, &array);//Заполнение координат
 	close(fd);
+	ft_entry_figure(array, map);
 	ft_print_field(map, map->size);//Рисовка карты и её удаление
 	free(array);
 	return (0);
