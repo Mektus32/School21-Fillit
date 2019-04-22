@@ -6,51 +6,13 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 18:18:54 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/21 18:18:56 by mtheodan         ###   ########.fr       */
+/*   Updated: 2019/04/22 16:06:59 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-// void	ft_push_coordinates(int fd, tetramina *pointer, int count)
-// {
-// 	char	*line;
-// 	int		a;
-// 	int		i;
-// 	int		j;
-// 	int		k;
-// 	int 	pos;
-
-// 	a = -1;
-// 	pos = 0;
-// 	while (++a < count)
-// 	{
-// 		j = 0;
-// 		k = -1;
-// 		while (++k < 5)
-// 		{
-// 			if (get_next_line(fd, &line) == -1)
-// 			{
-// 				printf("get_next_line = -1,file ft_push_list\n");
-// 				exit(-1);
-// 			}
-// 			i = -1;
-// 			while (line[++i] != '\0')
-// 			{
-// 				if (line[i] == '#')
-// 				{
-// 					pointer[a].num_of_tetr.num[pos].x = i;
-// 					pointer[a].num_of_tetr.num[pos].y = k;
-// 				}
-// 				else
-// 					i++;
-// 			}
-// 			j++;
-// 		}
-// 	}
-// }
-
-static	void	ft_push_struct_coor(char **place, int count, tetramina **pointer)
+static	void	ft_push_struct_coor(char **place, int count, t_tetramina **pointer)
 {
 	int		column;
 	int 	row;
@@ -65,8 +27,8 @@ static	void	ft_push_struct_coor(char **place, int count, tetramina **pointer)
 		{
 			if (place[row][column] == '#')
 			{
-				(*pointer)[count].num_of_tetr.num[num].x = column;
-				(*pointer)[count].num_of_tetr.num[num].y = row;
+				(*pointer)[count].num[num].x = column;
+				(*pointer)[count].num[num].y = row;
 				num++;
 			}
 			column++;
@@ -102,7 +64,7 @@ static	void	ft_free_place(char ***place)
 	free(str);
 }
 
-void				ft_push_coordinates(int fd, tetramina **pointer)
+void				ft_push_coordinates(int fd, t_tetramina **pointer)
 {
 	char		*str;
 	int			i;

@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 19:19:04 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/21 18:48:22 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 15:50:47 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,12 @@ void	ft_check_valid_files(int fd)
 			ft_print_error();
 		i++;
 		if (i == 5)
-		{
-			if (count != 4)
-				ft_print_error();//По идее не нужная штука, при проверке фигур должны исключаться эти случаи
 			i = 0;
-			count = 0;
-		}
 		ft_check_character(str);
 		count += ft_count_blocks(str);
 		free(str);
 	}
+	if (count > 129)
+		ft_print_error();
 	close(fd);
 }

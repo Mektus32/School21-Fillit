@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 12:31:37 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/21 21:04:10 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 16:03:34 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int main(void)
 {
 	int fd = open("./test2.txt", 0);
 
-	tetramina	*array;
+	t_tetramina	*array;
 	int			count;
 	int			len;
-	field		*map;
+	t_field		*map;
 	int			res;
 	int			pos;
 
@@ -41,8 +41,8 @@ int main(void)
 		pos = 0;
 		while (pos < 4)
 		{
-			printf("x = %d     " ,array[res].num_of_tetr.num[pos].x);
-			printf("y = %d\n",array[res].num_of_tetr.num[pos].y);
+			printf("x = %d     " ,array[res].num[pos].x);
+			printf("y = %d\n",array[res].num[pos].y);
 			pos++;
 		}
 		res++;
