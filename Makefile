@@ -6,13 +6,13 @@
 #    By: ojessi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/20 14:33:23 by ojessi            #+#    #+#              #
-#    Updated: 2019/04/20 16:36:59 by ojessi           ###   ########.fr        #
+#    Updated: 2019/04/22 17:36:03 by ojessi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 SRC = source/*.c libft/libft.a
-FLAGS = -Wextra -Wall -Werror
+FLAGS = -Wextra -Wall -Werror -g
 HEAD = headers/
 
 all: $(NAME)

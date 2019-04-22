@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 15:59:14 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/22 16:03:03 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 19:38:32 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,18 @@ typedef	struct	s_field
 {
 	char	**field;
 	int		size;
+	int		count;
 }				t_field;
 
 int				get_next_line(int fd, char **line);
 void			ft_print_error(void);
 void			ft_check_valid_files(int fd);
-void			ft_print_field(t_field *f, int count);
-t_field			*ft_create_field(int count);
+void			ft_print_field(t_field *map, int len);
+t_field			*ft_create_field(int len, int count);
 int				ft_square(int count);
 t_tetramina		*ft_coordinates(int count);
 void			ft_push_coordinates(int fd, t_tetramina **pointer);
 int				ft_check_valid_figures(int fd);
+void			ft_free_field(t_field **map, int len);
 
 #endif

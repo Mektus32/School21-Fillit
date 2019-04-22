@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 12:31:37 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/22 16:03:34 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 19:39:41 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,20 @@ int main(void)
 	int			count;
 	int			len;
 	t_field		*map;
-	int			res;
-	int			pos;
+	//int			res;
+	//int			pos;
 
 	ft_check_valid_files(fd);//проверка на валидность файла
 	fd = open("./test2.txt", O_RDONLY);
 	count = ft_check_valid_figures(fd);//проверка на валидность фигур
 	close(fd);
-	//array = ft_create_arr(count);//создание массива на count элементов(del)
 	fd = open("./test2.txt", 0);
 	len = ft_square(count);//длина стороны квадрата
-	map = ft_create_field(len);//создает картуш
+	map = ft_create_field(len, count);//создает карту
 	array = ft_coordinates(count);//создание массива на count  элементов
 	ft_push_coordinates(fd, &array);//Заполнение координат
 	close(fd);
-	res = 0;
-	while (res < count)
-	{
-		pos = 0;
-		while (pos < 4)
-		{
-			printf("x = %d     " ,array[res].num[pos].x);
-			printf("y = %d\n",array[res].num[pos].y);
-			pos++;
-		}
-		res++;
-	}
+	ft_print_field(map, map->size);//Рисовка карты и её удаление
 	free(array);
 	return (0);
 }
