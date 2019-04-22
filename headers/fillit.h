@@ -6,13 +6,15 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 15:59:14 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/22 19:38:32 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 20:25:19 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # define BUF_SIZE 21
+# define TRUE 1
+# define FALSE 0
 
 # include "libft.h"
 # include <fcntl.h>

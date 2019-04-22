@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 17:09:17 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/22 19:45:28 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/22 20:30:58 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,25 @@
 # define y3 arr[cur].num[3].y
 # define s map->size
 
-/*int		ft_entry_figure(t_tetramina *arr, t_field *map)
+int		ft_entry_figure(t_tetramina *arr, t_field *map)
 {
-	int		i;
-	int		j;
+	int				row;
+	int				col;
+	static	int		count = 0;
 
-	if (map->count == 0)
-		ft_print_field(map, map->size);
-
-}*/
+	if (count > map->count)
+		return (TRUE);
+	while (++row < s)
+	{
+		col = -1;
+		while (++col < s)
+			if (ft_check_entry_figure())
+			{
+				ft_tmp_fill_map();
+				if (ft_entry_figure())
+					return (TRUE);
+				ft_clean_map();
+			}
+	}
+	return (FALSE);
+}
