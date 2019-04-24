@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 15:59:14 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/22 22:07:01 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 18:39:39 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 # include "libft.h"
 # include <fcntl.h>
-# include <stdio.h>
 
 typedef	struct	s_tetramina
 {

@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 18:07:37 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/22 16:07:29 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 18:32:00 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ t_tetramina	*ft_coordinates(int count)
 		point[i].character = 'A' + i;
 		i++;
 	}
-	return(point);
+	return (point);
 }

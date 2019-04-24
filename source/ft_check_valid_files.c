@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 19:19:04 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/22 15:50:47 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 18:31:36 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	void	ft_check_character(char *str)
 			ft_print_error();
 }
 
-void	ft_check_valid_files(int fd)
+void			ft_check_valid_files(int fd)
 {
 	char	*str;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 15:55:41 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/24 17:55:28 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 18:32:19 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ t_field	*ft_create_field(int len, int count)
 		i++;
 	}
 	f->count = count;
-	return(f);
+	return (f);
 }

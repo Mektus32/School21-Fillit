@@ -6,20 +6,20 @@
 #    By: ojessi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/20 14:33:23 by ojessi            #+#    #+#              #
-#    Updated: 2019/04/22 17:36:03 by ojessi           ###   ########.fr        #
+#    Updated: 2019/04/24 18:54:33 by ojessi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 SRC = source/*.c libft/libft.a
-FLAGS = -Wextra -Wall -Werror -g
+FLAGS = -Wextra -Wall -Werror
 HEAD = headers/
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) $(SRC) -I $(HEAD)
-	./a.out
+	gcc $(FLAGS) $(SRC) -I $(HEAD) -o $(NAME)
+	./$(NAME)
 
 clean:
 	/bin/rm -f $(NAME)
