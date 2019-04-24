@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 16:14:07 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/24 17:54:15 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 20:11:40 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_print_field(t_field *map, int len)
 	int		i;
 	int		j;
 
-	
 	j = -1;
 	while (++j < len)
 	{
@@ -27,5 +26,4 @@ void	ft_print_field(t_field *map, int len)
 		write(1, "\n", 1);
 	}
 	ft_free_field(&map, len);
-	//exit(0);
 }

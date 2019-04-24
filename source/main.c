@@ -6,13 +6,13 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 12:31:37 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/24 18:56:34 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 20:14:58 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fillit.h"
+#include "fillit.h"
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_tetramina	*array;
 	int			count;
@@ -23,20 +23,19 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		exit(0);
 	argc = 2;
-	//	ft_putstr("usage: ./fillit source_file\n");
 	fd = open(argv[1], O_RDONLY);
-	ft_check_valid_files(fd);//проверка на валидность файла
+	ft_check_valid_files(fd);
 	fd = open(argv[1], O_RDONLY);
-	count = ft_check_valid_figures(fd);//проверка на валидность фигур
+	count = ft_check_valid_figures(fd);
 	close(fd);
 	fd = open(argv[1], O_RDONLY);
-	len = ft_square(count);//длина стороны квадрата
-	map = ft_create_field(len, count);//создает карту
-	array = ft_coordinates(count);//создание массива на count  элементов
-	ft_push_coordinates(fd, &array);//Заполнение координат
+	len = ft_square(count);
+	map = ft_create_field(len, count);
+	array = ft_coordinates(count);
+	ft_push_coordinates(fd, &array);
 	close(fd);
 	ft_entry_figure(array, map);
-	ft_print_field(map, map->size);//Рисовка карты и её удаление
+	ft_print_field(map, map->size);
 	free(array);
 	return (0);
 }

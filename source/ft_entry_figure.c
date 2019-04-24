@@ -6,20 +6,20 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 17:09:17 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/24 18:41:00 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 21:21:42 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-# define x1 arr[cur].num[1].x
-# define y1 arr[cur].num[1].y
-# define x2 arr[cur].num[2].x
-# define y2 arr[cur].num[2].y
-# define x3 arr[cur].num[3].x
-# define y3 arr[cur].num[3].y
-# define f (*map)->field
+#define X1 arr[cur].num[1].x
+#define Y1 arr[cur].num[1].y
+#define X2 arr[cur].num[2].x
+#define Y2 arr[cur].num[2].y
+#define X3 arr[cur].num[3].x
+#define Y3 arr[cur].num[3].y
+#define F (*map)->field
 
-static	int		ft_check_entry_figure(t_tetramina *arr, t_field **map,
+static	int			ft_check_entry_figure(t_tetramina *arr, t_field **map,
 		int *params)
 {
 	int		i;
@@ -32,22 +32,22 @@ static	int		ft_check_entry_figure(t_tetramina *arr, t_field **map,
 	j = params[1];
 	cur = params[2];
 	free(params);
-	if (i + y1 >= 0 && i + y1 < s && i + y2 >= 0 && i + y2 < s && i + y3 >= 0 &&
-			i + y3 < s && j + x1 >= 0 && j + x1 < s && j + x2 >= 0 && j + x2 < s
-			&& j + x3 >= 0 && j + x3 < s && f[i][j] == '.' &&
-			f[i + y1][j + x1] == '.' && f[i + y2][j + x2] == '.' &&
-			f[i + y3][j + x3] == '.')
+	if (i + Y1 >= 0 && i + Y1 < s && i + Y2 >= 0 && i + Y2 < s && i + Y3 >= 0 &&
+			i + Y3 < s && j + X1 >= 0 && j + X1 < s && j + X2 >= 0 && j + X2 < s
+			&& j + X3 >= 0 && j + X3 < s && F[i][j] == '.' &&
+			F[i + Y1][j + X1] == '.' && F[i + Y2][j + X2] == '.' &&
+			F[i + Y3][j + X3] == '.')
 	{
-		f[i][j] = arr[cur].character;
-		f[i + y1][j + x1] = arr[cur].character;
-		f[i + y2][j + x2] = arr[cur].character;
-		f[i + y3][j + x3] = arr[cur].character;
+		F[i][j] = arr[cur].character;
+		F[i + Y1][j + X1] = arr[cur].character;
+		F[i + Y2][j + X2] = arr[cur].character;
+		F[i + Y3][j + X3] = arr[cur].character;
 		return (1);
 	}
 	return (0);
 }
 
-static	int		*ft_compact_params(int row, int col, int count)
+static	int			*ft_compact_params(int row, int col, int count)
 {
 	int		*params;
 
@@ -58,7 +58,7 @@ static	int		*ft_compact_params(int row, int col, int count)
 	return (params);
 }
 
-static	void	ft_clean_map(t_tetramina *arr, t_field **map,
+static	void		ft_clean_map(t_tetramina *arr, t_field **map,
 		int *params)
 {
 	int		i;
@@ -69,27 +69,36 @@ static	void	ft_clean_map(t_tetramina *arr, t_field **map,
 	j = params[1];
 	cur = params[2];
 	free(params);
-	f[i][j] = '.';
-	f[i + y1][j + x1] = '.';
-	f[i + y2][j + x2] = '.';
-	f[i + y3][j + x3] = '.';
+	F[i][j] = '.';
+	F[i + Y1][j + X1] = '.';
+	F[i + Y2][j + X2] = '.';
+	F[i + Y3][j + X3] = '.';
 }
 
-int		ft_entry_figure(t_tetramina *arr, t_field *map)
+/*static	void		ft_up_map(t_field **map, int size)
+{
+	int		count;
+
+	count = (*map)->count;
+	ft_free_field(map, (*map)->size);
+	ft_create_field(size, count);
+}*/
+
+int					ft_entry_figure(t_tetramina *arr, t_field *map)
 {
 	int				row;
 	int				col;
 	static	int		count = -1;
 	int				s;
+	int				t;
 
-	s = map->size;
 	row = -1;
 	if (++count == map->count)
 		return (TRUE);
-	while (++row < s)
+	while (++row < map->size)
 	{
 		col = -1;
-		while (++col < s)
+		while (++col < map->size)
 			if (ft_check_entry_figure(arr, &map, ft_compact_params(row, col,
 							count)))
 			{
@@ -100,9 +109,11 @@ int		ft_entry_figure(t_tetramina *arr, t_field *map)
 	}
 	if (--count == -1)
 	{
-		s++;
+		s = map->size + 1;
+		t = map->count;
+	//	ft_up_map(&map, map->size + 1);
 		ft_free_field(&map, map->size);
-		ft_create_field(s, map->count);
+		ft_create_field(s, t);
 		ft_entry_figure(arr, map);
 	}
 	return (FALSE);

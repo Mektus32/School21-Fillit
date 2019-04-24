@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 15:09:53 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/24 18:27:31 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 20:59:11 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static	char	**ft_create_place(void)
 	return (place);
 }
 
-static	void	ft_free_place(char ***place, char **strcp)
+static	void	ft_free_place(char ***place)
 {
 	char		**str;
 	int			i;
@@ -85,8 +85,6 @@ static	void	ft_free_place(char ***place, char **strcp)
 	while (++i < 4)
 		free(str[i]);
 	free(str);
-	if (ft_strlen(*strcp) == 1)
-		ft_print_error();
 }
 
 int				ft_check_valid_figures(int fd)
@@ -112,6 +110,6 @@ int				ft_check_valid_figures(int fd)
 			figures += ft_check_side(place);
 		}
 	}
-	ft_free_place(&place, &str);
+	ft_free_place(&place);
 	return (figures);
 }

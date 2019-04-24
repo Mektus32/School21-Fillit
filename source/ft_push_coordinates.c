@@ -6,24 +6,24 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 18:18:54 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/24 17:55:16 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 20:13:29 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static	void	ft_delta_x_y(t_tetramina **pointer, int column, int row,
+static	void		ft_delta_x_y(t_tetramina **pointer, int column, int row,
 		int count)
 {
-		(*pointer)[count].num[0].x = column;
-		(*pointer)[count].num[0].y = row;
+	(*pointer)[count].num[0].x = column;
+	(*pointer)[count].num[0].y = row;
 }
 
-static	void	ft_push_struct_coor(char **place, int count,
+static	void		ft_push_struct_coor(char **place, int count,
 		t_tetramina **pointer)
 {
 	int		column;
-	int 	row;
+	int		row;
 	int		num;
 
 	num = -1;
@@ -37,7 +37,7 @@ static	void	ft_push_struct_coor(char **place, int count,
 				if (++num == 0)
 					ft_delta_x_y(pointer, column, row, count);
 				else
-				{	
+				{
 					(*pointer)[count].num[num].x = column -
 						(*pointer)[count].num[0].x;
 					(*pointer)[count].num[num].y = row -
@@ -49,7 +49,7 @@ static	void	ft_push_struct_coor(char **place, int count,
 	(*pointer)[count].num[0].y = 0;
 }
 
-static	char	**ft_create_place(void)
+static	char		**ft_create_place(void)
 {
 	char		**place;
 	int			i;
@@ -64,7 +64,7 @@ static	char	**ft_create_place(void)
 	return (place);
 }
 
-static	void	ft_free_place(char ***place)
+static	void		ft_free_place(char ***place)
 {
 	char		**str;
 	int			i;
