@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 12:31:37 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/24 20:14:58 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 21:52:18 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		main(int argc, char **argv)
 	ft_push_coordinates(fd, &array);
 	close(fd);
 	ft_entry_figure(array, map);
-	ft_print_field(map, map->size);
+	free(map);
 	free(array);
 	return (0);
 }

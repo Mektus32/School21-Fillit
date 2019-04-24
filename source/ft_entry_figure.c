@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 17:09:17 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/24 21:21:42 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 21:52:20 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,11 @@ int					ft_entry_figure(t_tetramina *arr, t_field *map)
 
 	row = -1;
 	if (++count == map->count)
+	{
+		ft_print_field(map, map->size);
+		free(map);
 		return (TRUE);
+	}
 	while (++row < map->size)
 	{
 		col = -1;
@@ -111,9 +115,9 @@ int					ft_entry_figure(t_tetramina *arr, t_field *map)
 	{
 		s = map->size + 1;
 		t = map->count;
-	//	ft_up_map(&map, map->size + 1);
+		//ft_up_map(&map, map->size + 1);
 		ft_free_field(&map, map->size);
-		ft_create_field(s, t);
+		map = ft_create_field(s, t);
 		ft_entry_figure(arr, map);
 	}
 	return (FALSE);
