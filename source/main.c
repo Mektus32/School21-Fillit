@@ -6,7 +6,7 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 12:31:37 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/24 16:18:26 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 17:36:08 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main(void)
 	close(fd);
 	fd = open("./test2.txt", 0);
 	len = ft_square(count);//длина стороны квадрата
+	printf("storona carti = %d\n", len);
 	map = ft_create_field(len, count);//создает карту
 	array = ft_coordinates(count);//создание массива на count  элементов
 	ft_push_coordinates(fd, &array);//Заполнение координат
