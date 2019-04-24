@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 17:09:17 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/22 22:11:01 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/24 16:21:43 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define f (*map)->field
 
 static	int		ft_check_entry_figure(t_tetramina *arr, t_field **map,
-		int **params)
+		int *params)
 {
 	int		i;
 	int		j;
@@ -28,10 +28,10 @@ static	int		ft_check_entry_figure(t_tetramina *arr, t_field **map,
 	int		s;
 
 	s = (*map)->size;
-	i = (*params)[0];
-	j = (*params)[1];
-	cur = (*params)[2];
-	free(*params);//нет ли ошибки при удалении?
+	i = params[0];
+	j = params[1];
+	cur = params[2];
+	free(params);
 	if (i + x1 > 0 && i + x1 < s && i + x2 > 0 && i + x2 < s && i + x3 > 0 &&
 			i + x3 < s && j + y1 > 0 && j + y1 < s && j + y2 > 0 && j + y2 < s
 			&& j + y3 > 0 && j + y3 < s && f[i][j] == '.' &&
@@ -59,29 +59,30 @@ static	int		*ft_compact_params(int row, int col, int count)
 }
 
 static	void	ft_clean_map(t_tetramina *arr, t_field **map,
-		int **params)
+		int *params)
 {
 	int		i;
 	int		j;
 	int		cur;
 
-	i = (*params)[0];
-	j = (*params)[1];
-	cur = (*params)[2];
-	free(*params);//нет ли ошибки при удалении?
+	i = params[0];
+	j = params[1];
+	cur = params[2];
+	free(params);
 	f[i][j] = '.';
 	f[i + x1][j + y1] = '.';
 	f[i + x2][j + y2] = '.';
 	f[i + x3][j + y3] = '.';
 }
 
-int		ft_entry_figure(t_tetramina *arr, t_field *map)//возможно нужно передавать адрес карты,попробуй так как есть,если не получится,то надо по адресу через две звёздочки и ампеосант
+int		ft_entry_figure(t_tetramina *arr, t_field *map)
 {
 	int				row;
 	int				col;
 	static	int		count = -1;
 	int				s;
-        int                             len;
+	int				len;
+
 	s = map->size;
 	row = -1;
 				printf("check0\n");
@@ -92,22 +93,21 @@ int		ft_entry_figure(t_tetramina *arr, t_field *map)//возможно нужн�
 		col = -1;
 				printf("check1\n");
 		while (++col < s)
-			if (ft_check_entry_figure(arr, &map, &(ft_compact_params(row, col,
-							count))))
+			if (ft_check_entry_figure(arr, &map, ft_compact_params(row, col,
+							count)))
 			{
 				if (ft_entry_figure(arr, map))
 					return (TRUE);
 				printf("check2\n");
-				ft_clean_map(arr, &map, &(ft_compact_params(row, col, count)));
+				ft_clean_map(arr, &map, ft_compact_params(row, col, count));
 			}
 	}
-        count--;
-        if (count == -1)
-        {
-          len = map->size + 1;
-          ft_free_field(&map, map->size);
-          ft_create_field(len, len);
-          ft_entry_figure(arr, map);
-        }
+	if (--count == -1)
+	{
+		len = map->size + 1;
+		ft_free_field(&map, map->size);
+		ft_create_field(len, len);
+		ft_entry_figure(arr, map);
+	}
 	return (FALSE);
 }
