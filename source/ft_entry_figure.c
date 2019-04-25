@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 17:09:17 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/24 21:52:20 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/25 16:22:07 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,50 +75,29 @@ static	void		ft_clean_map(t_tetramina *arr, t_field **map,
 	F[i + Y3][j + X3] = '.';
 }
 
-/*static	void		ft_up_map(t_field **map, int size)
-{
-	int		count;
-
-	count = (*map)->count;
-	ft_free_field(map, (*map)->size);
-	ft_create_field(size, count);
-}*/
-
-int					ft_entry_figure(t_tetramina *arr, t_field *map)
+int					ft_entry_figure(t_tetramina *arr, t_field **map)
 {
 	int				row;
 	int				col;
 	static	int		count = -1;
-	int				s;
-	int				t;
 
 	row = -1;
-	if (++count == map->count)
-	{
-		ft_print_field(map, map->size);
-		free(map);
+	if (++count == (*map)->count)
 		return (TRUE);
-	}
-	while (++row < map->size)
+	while (++row < (*map)->size)
 	{
 		col = -1;
-		while (++col < map->size)
-			if (ft_check_entry_figure(arr, &map, ft_compact_params(row, col,
+		while (++col < (*map)->size)
+			if (ft_check_entry_figure(arr, map, ft_compact_params(row, col,
 							count)))
 			{
 				if (ft_entry_figure(arr, map))
 					return (TRUE);
-				ft_clean_map(arr, &map, ft_compact_params(row, col, count));
+				ft_clean_map(arr, map, ft_compact_params(row, col, count));
 			}
 	}
 	if (--count == -1)
-	{
-		s = map->size + 1;
-		t = map->count;
-		//ft_up_map(&map, map->size + 1);
-		ft_free_field(&map, map->size);
-		map = ft_create_field(s, t);
-		ft_entry_figure(arr, map);
-	}
+		ft_entry_figure(arr, ft_change_map(map, (*map)->size,
+					(*map)->size + 1));
 	return (FALSE);
 }

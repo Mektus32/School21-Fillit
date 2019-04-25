@@ -6,7 +6,7 @@
 /*   By: ojessi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 19:19:04 by ojessi            #+#    #+#             */
-/*   Updated: 2019/04/24 18:31:36 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/25 16:51:33 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			ft_check_valid_files(int fd)
 		count += ft_count_blocks(str);
 		free(str);
 	}
-	if (count > 129)
+	if (count > 129 || count == 0 || (i != 4 && i != 0))
 		ft_print_error();
 	close(fd);
 }

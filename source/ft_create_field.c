@@ -6,35 +6,30 @@
 /*   By: mtheodan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 15:55:41 by mtheodan          #+#    #+#             */
-/*   Updated: 2019/04/24 18:32:19 by ojessi           ###   ########.fr       */
+/*   Updated: 2019/04/25 15:16:50 by ojessi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_field	*ft_create_field(int len, int count)
+t_field	*ft_create_field(int map_size, int count_figure)
 {
 	int		i;
 	int		j;
-	t_field	*f;
+	t_field	*map;
 
-	i = 0;
-	j = 0;
-	f = (t_field*)malloc(sizeof(t_field));
-	f->field = (char**)malloc(sizeof(char*) * len);
-	f->size = len;
-	while (i < len)
+	i = -1;
+	map = (t_field*)malloc(sizeof(t_field));
+	map->field = (char**)malloc(sizeof(char*) * map_size);
+	map->size = map_size;
+	while (++i < map_size)
 	{
-		f->field[i] = (char*)malloc(sizeof(char) * (len + 1));
-		f->field[i][len] = '\0';
-		while (j < len)
-		{
-			f->field[i][j] = '.';
-			j++;
-		}
-		j = 0;
-		i++;
+		j = -1;
+		map->field[i] = (char*)malloc(sizeof(char) * (map_size + 1));
+		map->field[i][map_size] = '\0';
+		while (++j < map_size)
+			map->field[i][j] = '.';
 	}
-	f->count = count;
-	return (f);
+	map->count = count_figure;
+	return (map);
 }
